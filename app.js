@@ -19,6 +19,7 @@ const postsRouter = require('./routers/posts');
 // Utilizzo dei ROUTERS
 app.use('/posts', postsRouter);
 
+
 // ROUTE della Homepage
 app.get('/', (req, res) => {
   res.send('Il mio Blog');
