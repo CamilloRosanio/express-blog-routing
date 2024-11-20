@@ -42,9 +42,54 @@ router.get('/', (req, res) => {
 })
 
 
+// show
+router.get('/:id', (req, res) => {
+    
+    // Estrazione di un singolo PARAM dall'URL, in questo caso "id"
+    const id = query.params.id;
+
+
+    
+    res.json(`Mostra dettagli del post con id ${id}`);
+})
+
+
+// Store
+router.post('/', (req, res) => {
+    
+    res.send('Crea un nuovo Post');
+})
+
+
+// Update
+router.put('/:id', (req, res) => {
+    
+    // Estrazione di un singolo PARAM dall'URL con DESTRUCTURING, in questo caso "id"
+    const { id } = query.params;
+    
+    res.json(`Modifica totale del post con id ${id}`);
+})
+
+
+// Modify
+router.patch('/:id', (req, res) => {
+    
+    const { id } = query.params;
+
+    res.json(`Modifica parziale del post con id ${id}`);
+})
+
+
+// Destroy
+router.delete('/:id', (req, res) => {
+
+    const id = query.params.id;
+
+    res.json(`Eliminazione del post con id ${id}`);
+})
 
 
 
 
-
+// EXPORT del ROUTER
 module.exports = router;
