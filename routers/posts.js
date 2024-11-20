@@ -46,44 +46,44 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     
     // Estrazione di un singolo PARAM dall'URL, in questo caso "id"
-    const id = query.params.id;
+    const id = req.params.id;
 
+    filteredArray = postArray.filter(post => parseInt(post.id) === parseInt(id));
 
-    
-    res.json(`Mostra dettagli del post con id ${id}`);
+    res.json(filteredArray);
 })
 
 
-// Store
+// store
 router.post('/', (req, res) => {
-    
-    res.send('Crea un nuovo Post');
+
+    res.json('Crea un nuovo Post');
 })
 
 
-// Update
+// update
 router.put('/:id', (req, res) => {
     
     // Estrazione di un singolo PARAM dall'URL con DESTRUCTURING, in questo caso "id"
-    const { id } = query.params;
+    const { id } = req.params;
     
     res.json(`Modifica totale del post con id ${id}`);
 })
 
 
-// Modify
+// modify
 router.patch('/:id', (req, res) => {
     
-    const { id } = query.params;
+    const { id } = req.params;
 
     res.json(`Modifica parziale del post con id ${id}`);
 })
 
 
-// Destroy
+// destroy
 router.delete('/:id', (req, res) => {
 
-    const id = query.params.id;
+    const id = req.params.id;
 
     res.json(`Eliminazione del post con id ${id}`);
 })
